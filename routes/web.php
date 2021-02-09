@@ -27,26 +27,26 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Rutas de la INTRANET
 Route::prefix('intranet')->middleware('auth')->group(function () {
     
-    Route::group(['middleware' => 'role:grestaurante', 'prefix' => 'restaurante', 'as' => 'grestaurante.'], function() {
+    Route::group(['middleware' => 'role:grestaurante', 'prefix' => 'restaurante'], function() {
         Route::get('/', function () {
             return view('intranet.restaurantes');
         });
+
+        //Crear restaurante, platos, borrar, finalizar pedido, ...
     });
 
-    Route::group(['middleware' => 'role:cliente', 'prefix' => 'cliente', 'as' => 'cliente.'], function() {
+    Route::group(['middleware' => 'role:cliente', 'prefix' => 'cliente'], function() {
         Route::get('/', function () {
             return view('intranet.clientes');
         });
     });
 
-    Route::group(['middleware' => 'role:repartidor', 'prefix' => 'repartidor', 'as' => 'repartidor.'], function() {
+    Route::group(['middleware' => 'role:repartidor', 'prefix' => 'repartidor'], function() {
         Route::get('/', function () {
             return view('intranet.repartidores');
         });
     });
     
-    
-
 });
 
 
