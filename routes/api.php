@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RestauranteController;
 use App\Http\Resources\RestauranteResource;
+use App\Http\Resources\PlatosResource;
 use App\Models\Restaurante;
+use App\Models\Platos;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +25,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
-Route::get('/restaurante/{id}', function ($id) {
+Route::middleware('auth:sanctum')->get('/restaurante/{id}', function ($id) {
     return new RestauranteResource(Restaurante::findOrFail($id));
 });
-Route::get('/restaurante', function () {
+Route::middleware('auth:sanctum')->get('/restaurante', function () {
     return RestauranteResource::collection(Restaurante::paginate(3));
 });
-Route::post('/restaurante', [RestauranteController::class, 'apiStore'] );
+
+Route::middleware('auth:sanctum')->get('/platos', function () {
+    return PlatosResource::collection(Platos::paginate(5));
+});
+
+Route::middleware('auth:sanctum')->post('/restaurante', [RestauranteController::class, 'apiStore']);
+Route::middleware('auth:sanctum')->delete('/restaurante/delete/{restaurante}', [RestauranteController::class, 'apiDelete']);
+

@@ -137,9 +137,24 @@ class RestauranteController extends Controller
         $restaurante->user_id = Auth::id();  //TO-DO PASSPORT
         $restaurante->save();
 
+        //En lugar de devolver una vista, devuelvo si se ha realizado la acción
         return response(['restaurante' => new RestauranteResource($restaurante), 
                              'message' => 'Created successfully'], 201);
    
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Restaurante  $restaurante
+     * @return \Illuminate\Http\Response
+     */
+    public function apiDelete(Restaurante $restaurante)
+    {
+        $this->authorize('delete', $restaurante);
+        $restaurante->delete();
+
+        return response(['message' => 'Deleted successfully'], 201);
     }
 
 
