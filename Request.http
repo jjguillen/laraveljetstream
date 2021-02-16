@@ -1,0 +1,32 @@
+http://restaurantelaravel.herokuapp.com/api/restaurante
+Authorization: Bearer 4OlC0cUmzq3LYRnuVIoYMXz3eUFeb0MRGlOKqK1o
+
+###
+
+POST http://restaurantelaravel.herokuapp.com/api/restaurante
+Authorization: Bearer 4OlC0cUmzq3LYRnuVIoYMXz3eUFeb0MRGlOKqK1o
+Content-Type: application/x-www-form-urlencoded
+
+nombre= Tadeo
+&direccion= Su calle
+&ciudad= Villaricos
+&telefono= 66655666
+&longitud= 10
+&latitud= 20
+
+###
+
+POST http://restaurantelaravel.herokuapp.com/api/restaurante
+Authorization: Bearer 4OlC0cUmzq3LYRnuVIoYMXz3eUFeb0MRGlOKqK1o
+Content-Type: application/json
+
+{
+"nombre": "Tadeo",
+"direccion": "Su calle",
+"ciudad": "Villaricos",
+"telefono": "66655666",
+"longitud": 10,
+"latitud": 20
+}
+###
+
