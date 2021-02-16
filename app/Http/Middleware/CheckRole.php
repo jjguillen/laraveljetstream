@@ -27,6 +27,7 @@ class CheckRole
         //Si no es admin comprobamos que sea el role correspondiente
         if ( $user->role->role != "admin") {
             //Si el role de la ruta no coincide con el del usuario, error 403
+            
             if ($role == 'grestaurante' && $user->role->role != "grestaurante") {
                 abort(403);
             }

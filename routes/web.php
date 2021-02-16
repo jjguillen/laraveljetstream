@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RestauranteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::prefix('intranet')->middleware('auth')->group(function () {
     
     Route::group(['middleware' => 'role:grestaurante', 'prefix' => 'restaurante'], function() {
-        Route::get('/', function () {
-            return view('intranet.restaurantes');
-        });
+        Route::get('/{restaurante}', [RestauranteController::class, 'show'] );
+        Route::get('/{restaurante}/delete', [RestauranteController::class, 'destroy'] );
+        Route::resource('/', RestauranteController::class);
 
         //Crear restaurante, platos, borrar, finalizar pedido, ...
     });
