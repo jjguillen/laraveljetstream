@@ -21,7 +21,7 @@ Authorization: Bearer 4OlC0cUmzq3LYRnuVIoYMXz3eUFeb0MRGlOKqK1o
 Content-Type: application/json
 
 {
-"nombre": "Tadeo",
+"nombre": "Otro",
 "direccion": "Su calle",
 "ciudad": "Villaricos",
 "telefono": "66655666",

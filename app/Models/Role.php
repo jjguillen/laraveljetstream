@@ -14,4 +14,9 @@ class Role extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function gestoresRestaurante() {
+        return $this->hasMany(User::class)
+                ->wherePivot('role', 'grestaurante');
+    }
 }

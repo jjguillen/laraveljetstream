@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestauranteController;
+use App\Http\Controllers\FoodingController;
+use App\Http\Controllers\CarroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,14 +57,19 @@ Route::prefix('intranet')->middleware('auth')->group(function () {
 Route::prefix('/fooding')->middleware('auth')->group(function () {
     
     Route::get('/', function () {
-        return view('fooding');     //Mostrar restaurantes y platos para pedir
+        return view('fooding.home');
     });
-   
-    //Ruta de hacer pedidos
+    Route::get('/restaurantes', [FoodingController::class, 'getRestaurantes']);
+    Route::get('/restaurantes/{id}', [FoodingController::class, 'getRestauranteDetalle']);
+    Route::get('/restaurantes/{id}/platos', [FoodingController::class, 'getPlatos']);
 
-    //Ruta de ver restaurantes, en detalle, ...
+    Route::get('/platos/{id}', [FoodingController::class, 'getPlato']);
+    
+    Route::get('/carro/add/{id}', [CarroController::class, 'add']);
+    Route::get('/carro/checkout', [CarroController::class, 'check'])->name('cart.checkout');
+    Route::post('/carro/delete', [CarroController::class, 'delete'])->name('cart.delete');
 
-    //Ruta de ver platos, detalle, ...
+    
        
 
 });

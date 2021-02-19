@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Platos;
+use App\Models\Plato;
 
 class Restaurante extends Model
 {
@@ -15,6 +15,6 @@ class Restaurante extends Model
     ];
 
     public function platos() {
-        return $this->hasMany(Platos::class);
+        return $this->hasMany(Plato::class);
     }
 }
