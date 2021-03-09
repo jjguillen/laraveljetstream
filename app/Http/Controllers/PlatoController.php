@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurante;
 use App\Models\Plato;
+use Illuminate\Support\Facades\Storage;
 
 class PlatoController extends Controller
 {
@@ -38,7 +39,8 @@ class PlatoController extends Controller
      */
     public function store(Request $request, Restaurante $restaurante)
     {
-        $path = $request->file('foto')->store('platos');
+        //$path = $request->file('foto')->store('platos');
+        $path = Storage::disk('public')->put('uploads/', $request->file('foto'));
 
         $plato = new Plato;
         $plato->nombre = $request->nombre;
