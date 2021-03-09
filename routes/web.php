@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestauranteController;
 use App\Http\Controllers\FoodingController;
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\PlatoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::prefix('intranet')->middleware('auth')->group(function () {
     
     Route::group(['middleware' => 'role:grestaurante', 'prefix' => 'restaurante'], function() {
-        Route::get('/{restaurante}', [RestauranteController::class, 'show'] );
-        Route::get('/{restaurante}/delete', [RestauranteController::class, 'destroy'] );
+        //Route::get('/{restaurante}', [RestauranteController::class, 'show'] );
+        //Route::get('/{restaurante}/delete', [RestauranteController::class, 'destroy'] );
+        Route::get('/{restaurante}/platos', [PlatoController::class, 'index']);
+        Route::get('/{restaurante}/plato', [PlatoController::class, 'create']);
+        Route::post('/{restaurante}/plato', [PlatoController::class, 'store']);
         Route::resource('/', RestauranteController::class);
 
         //Crear restaurante, platos, borrar, finalizar pedido, ...
@@ -68,6 +72,7 @@ Route::prefix('/fooding')->middleware('auth')->group(function () {
     Route::get('/carro/add/{id}', [CarroController::class, 'add']);
     Route::get('/carro/checkout', [CarroController::class, 'check'])->name('cart.checkout');
     Route::post('/carro/delete', [CarroController::class, 'delete'])->name('cart.delete');
+    Route::get('/carro/buy', [CarroController::class, 'buy'])->name('cart.buy');
 
     
        

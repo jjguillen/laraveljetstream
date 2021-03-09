@@ -54,13 +54,16 @@
   </div>
 
   <div class="container_12">
+   
    <div class="grid_12"> 
+      <!--
     <div class="socials">
       <a href="#"></a>
       <a href="#"></a>
       <a href="#"> </a>
       <a href="#" class="last"></a>
     </div>
+      -->
 
     <h1><a href="#"><img src="{{ asset('images/logo.png') }}" alt="Boo House"></a> </h1>
     <div class="menu_block">
@@ -74,8 +77,7 @@
             <li class="bt-icon"><a href="/fooding/contacto">Contacto</a></li>
         </ul>
       </nav>
-    
-      <div class="clear"></div>
+
     </div>
 
     <div class="clear"></div>

@@ -36,7 +36,9 @@
 
         </table>
 
+        <a href="{{ route('cart.buy') }}">
         <button type="button" class="btn btn-success">Realizar pedido</button>
+        </a>
 
         @else
           <p>Carro vacío</p>

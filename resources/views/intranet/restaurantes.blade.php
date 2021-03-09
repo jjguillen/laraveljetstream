@@ -13,6 +13,7 @@
                     Crear tu restaurante
                 </button>
             </a>
+            
 
                 <table class="border-collapse w-full">
                     <thead>
@@ -53,6 +54,8 @@
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                             <a href="/intranet/restaurante/{{ $restaurante->id }}/delete">Borrar</a>
+                            <a href="/intranet/restaurante/{{ $restaurante->id }}/plato">NuevoPlato</a>
+                            <a href="/intranet/restaurante/{{ $restaurante->id }}/platos">VerPlatos</a>
                             </td>
                         </tr>
                         @endforeach
