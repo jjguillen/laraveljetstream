@@ -33,7 +33,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/fooding/dashboard') }}" class="text-sm text-gray-700 underline">Área Cliente</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Área Cliente</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
