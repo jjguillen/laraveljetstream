@@ -39,8 +39,9 @@ class PlatoController extends Controller
      */
     public function store(Request $request, Restaurante $restaurante)
     {
-        $path = $request->file('foto')->store('platos');
-        
+        //$path = $request->file('foto')->store('platos');
+        $path = Storage::disk('public')->put('uploads/', $request->file('foto'));
+
         $plato = new Plato;
         $plato->nombre = $request->nombre;
         $plato->descripcion = $request->descripcion;
