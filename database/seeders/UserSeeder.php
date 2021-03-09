@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'admin',
             'lastname' => Str::random(10),
+            'address' => 'Mi casa',
             'city' => Str::random(10),
             'movil' => Str::random(10),
             'dni' => '48416709F',
