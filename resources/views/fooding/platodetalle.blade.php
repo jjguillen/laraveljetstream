@@ -12,7 +12,7 @@
 
 
         <div class="post">
-          <img src="{{ asset('images/page4_img1.jpg')}}" alt="" class="img_inner fleft">
+        <img width="50px" src="{{ asset($plato->foto) }}" class="img_inner fleft">
           <div class="extra_wrapper">
             <div class="title col3"><a href="#"> {{ $plato->descripcion}} </a></div>
             
