@@ -7,7 +7,7 @@
           @foreach($restaurantes as $restaurante)
 
             <a href="/fooding/restaurantes/{{ $restaurante->id }}" class="block1">
-              <img src="{{ asset('images/blur_img'. $restaurante->id .'.jpg') }}" alt="">
+              <img width="150px" src="{{ asset($plato->foto) }}">
               <span class="price"><span>{{ $restaurante->nombre }}</span><strong></strong></span>
             </a>
    
